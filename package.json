@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/gagandeepkatodia/Ouder-Zorg-Backend/issues"
   },
-  "homepage": "https://github.com/gagandeepkatodia/Ouder-Zorg-Backend#readme"
+  "homepage": "https://github.com/gagandeepkatodia/Ouder-Zorg-Backend#readme",
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.7"
+  }
 }

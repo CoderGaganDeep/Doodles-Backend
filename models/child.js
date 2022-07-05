@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       name: { type: DataTypes.STRING, allowNull: false },
       age: { type: DataTypes.INTEGER, allowNull: false },
       branch: { type: DataTypes.STRING, allowNull: false },
-      avatar: { type: DataTypes.STRING, allowNull: false },
+      avatar: { type: DataTypes.STRING, allowNull: true },
       group: { type: DataTypes.STRING, allowNull: false },
     },
     {
