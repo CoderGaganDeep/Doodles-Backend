@@ -7,7 +7,7 @@ const { toData } = require("../auth/jwt");
 //Create a new Router instance.
 const router = new Router();
 
-//Get all Teachers
+//Get all Feeds
 //step1: define asyn with Route
 router.get("/", async (request, response, next) => {
   try {
@@ -23,8 +23,35 @@ router.get("/", async (request, response, next) => {
   }
 });
 
-//npx nodemon index.js
+// get Feed by id --- http -v localhost:4000/child/1
+router.get("/:id", async (request, response, next) => {
+  try {
+    console.log("IN NETHOD");
+    const { id } = request.params;
+    const feedById = await Feed.findByPk(id);
+    response.send(feedById);
+  } catch (error) {
+    console.log("error from feed by id: ", error.message);
+    next(error);
+  }
+});
 
-//Export the router.
+// add new feed
+// http -v POST :4000/feed feed="baby" imageUrl="dhhoe.com" childId=6 teacherId=3
+router.post("/", async (request, response, next) => {
+  try {
+    const { feed, imageUrl, childId } = request.body; // send the name and userId on thunks to create the mySpace:
+    const newFeed = await Feed.create({
+      feed: `${feed}`,
+      imageUrl: imageUrl,
+      childId: childId,
+    });
+    response.send(newFeed);
+  } catch (error) {
+    console.log("error from newFeed: ", error.message);
+    next(error);
+  }
+});
+//npx nodemon index.js
 
 module.exports = router;

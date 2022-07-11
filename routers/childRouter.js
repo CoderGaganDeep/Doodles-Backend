@@ -39,7 +39,7 @@ router.post("/", async (request, response, next) => {
   try {
     const { name, age, branch, group } = request.body; // send the name and userId on thunks to create the mySpace:
     const newChild = await Child.create({
-      name: `${name}'s added`,
+      name: `${name}`,
       age: age,
       branch: branch,
       group: group,
