@@ -24,6 +24,9 @@ module.exports = {
       phone: {
         type: Sequelize.INTEGER,
       },
+      isTeacher: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

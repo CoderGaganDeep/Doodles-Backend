@@ -1,6 +1,9 @@
 //Import the Router class from express.
 const { Router } = require("express");
 const Feed = require("../models").feed;
+const User = require("../models").user;
+const Child = require("../models").child;
+const authMiddleware = require("../auth/middleware");
 
 const { toData } = require("../auth/jwt");
 
@@ -23,12 +26,25 @@ router.get("/", async (request, response, next) => {
   }
 });
 
-// get Feed by id --- http -v localhost:4000/child/1
-router.get("/:id", async (request, response, next) => {
+// get Feed by id --- http -v localhost:4000/feed/1
+router.get("/myChild", authMiddleware, async (request, response, next) => {
   try {
     console.log("IN NETHOD");
-    const { id } = request.params;
-    const feedById = await Feed.findByPk(id);
+    const { id } = request.user.dataValues;
+    // const feedById = await User.findByPk(id, {
+    //   include: [
+    //     {
+    //       model: Child,
+    //       include: [Feed],
+    //     },
+    //   ],
+    //   attributes: { exclude: ["password"] },
+    // });
+
+    const feedById = await Child.findAll({
+      where: { userId: id },
+      include: [Feed],
+    });
     response.send(feedById);
   } catch (error) {
     console.log("error from feed by id: ", error.message);

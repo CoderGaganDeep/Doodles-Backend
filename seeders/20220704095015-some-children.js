@@ -25,7 +25,7 @@ module.exports = {
           group: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
-          userId: 2,
+          userId: 1,
         },
         {
           name: "Jadon",
@@ -36,7 +36,7 @@ module.exports = {
           group: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
-          userId: 3,
+          userId: 2,
         },
         {
           name: "Tia",
@@ -47,7 +47,7 @@ module.exports = {
           group: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
-          userId: 4,
+          userId: 2,
         },
         {
           name: "Myra",

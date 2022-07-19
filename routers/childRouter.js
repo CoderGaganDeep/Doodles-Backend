@@ -1,10 +1,9 @@
 //Import the Router class from express.
 const { Router } = require("express");
 const Child = require("../models").child;
-const authMiddleware = require("../auth/middleware");
 const User = require("../models").user;
 const { toData } = require("../auth/jwt");
-
+const authMiddleware = require("../auth/middleware");
 const router = new Router();
 
 // get all children

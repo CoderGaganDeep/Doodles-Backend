@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
       email: { type: DataTypes.STRING, unique: true, allowNull: false },
       password: { type: DataTypes.STRING, allowNull: false },
       phone: { type: DataTypes.INTEGER },
+      isTeacher: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+      },
     },
     {
       sequelize,
