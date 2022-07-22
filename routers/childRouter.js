@@ -36,13 +36,13 @@ router.get("/:id", async (request, response, next) => {
 // http -v PUT :4000/child/4 name="baby" age="2" branch="a" group="s"
 router.post("/", async (request, response, next) => {
   try {
-    const { name, age, branch, group } = request.body; // send the name and userId on thunks to create the mySpace:
+    const { name, age, branch, group, userId } = request.body; // send the name and userId on thunks to create the mySpace:
     const newChild = await Child.create({
       name: `${name}`,
       age: age,
       branch: branch,
       group: group,
-      userId: User.id,
+      userId: userId,
     });
     response.send(newChild);
   } catch (error) {
