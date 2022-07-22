@@ -1,4 +1,6 @@
 "use strict";
+const bcrypt = require("bcrypt");
+const { SALT_ROUNDS } = require("../config/constants");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -6,29 +8,59 @@ module.exports = {
       "users",
       [
         {
-          name: "Apple",
-          email: "apple@apple.com",
-          phone: 1234567,
-          password: "apple",
+          name: "Karla",
+          email: "Karla@doddles.com",
+          phone: 60506054,
+          password: bcrypt.hashSync("123", SALT_ROUNDS),
+          isTeacher: "false",
           createdAt: new Date(),
           updatedAt: new Date(),
-        }, 
+        },
         {
-          name: "Banana",
-          email: "banana@banana.com",
-          phone: 1234567,
-          password: "banana",
+          name: "Shikha",
+          email: "Shikha@doddles.com",
+          phone: 60506054,
+          password: bcrypt.hashSync("123", SALT_ROUNDS),
+          isTeacher: "false",
           createdAt: new Date(),
           updatedAt: new Date(),
-        },  
+        },
         {
-          name: "Coco",
-          email: "coco@coco.com",
-          phone: 1234567,
-          password: "coco",
+          name: "Miriam",
+          email: "Miriam@doddles.com",
+          phone: 65060547,
+          password: bcrypt.hashSync("123", SALT_ROUNDS),
+          isTeacher: "false",
           createdAt: new Date(),
           updatedAt: new Date(),
-        },     
+        },
+        {
+          name: "Ria",
+          email: "Riadoddles.com",
+          phone: 65060547,
+          password: bcrypt.hashSync("123", SALT_ROUNDS),
+          isTeacher: "false",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Ingrid",
+          email: "Ingrid@doddles.com",
+          phone: 65060547,
+          password: bcrypt.hashSync("123", SALT_ROUNDS),
+          isTeacher: "false",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Vidya",
+          email: "Vidya@doddles.com",
+          phone: 65060547,
+          password: bcrypt.hashSync("123", SALT_ROUNDS),
+          isTeacher: "true",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
